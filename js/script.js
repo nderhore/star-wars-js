@@ -78,5 +78,40 @@ function findPeople() {
         .catch(error => {
             console.log("Il y a une erreur : " + error);
         });
+
+    /**
+     * Même traitement, mais, avec ajax
+     *
+     * const xhr = new XMLHttpRequest();
+     *
+     *     xhr.open('GET', url, true);
+     *     xhr.send();
+     *
+     *     xhr.onreadystatechange = function () {
+     *         // je sais que j'ai reçu une réponse
+     *         if (xhr.readyState == 4) {
+     *             const resultatsDiv = document.getElementById("results");
+     *             resultsDiv.innerHTML = "";
+     *             // verifier que la réponse est OK
+     *             if (xhr.status == 200) {
+     *                 const data = JSON.parse(xhr.responseText);
+     *                 if (data.results.length > 0) {
+     *                     const character = data.results[0]; // Prendre le premier résultat
+     *                     resultatsDiv.innerHTML = `
+     *                                 <h2>${character.name}</h2>
+     *                                 <p><strong>Année de naissance :</strong> ${character.birth_year}</p>
+     *                                 <p><strong>Genre :</strong> ${character.gender}</p>
+     *                                 <p><strong>Taille :</strong> ${character.height} cm</p>
+     *                                 <p><strong>Poids :</strong> ${character.mass} kg</p>
+     *                             `;
+     *                 } else {
+     *                     resultatsDiv.innerHTML = '<p>Aucun personnage trouvé.</p>';
+     *                 }
+     *             } else {
+     *                 resultatsDiv.innerHTML = `<p> Erreur de réseau : ${xhr.status}`;
+     *             }
+     *         }
+     *     };
+     */
 }
 
